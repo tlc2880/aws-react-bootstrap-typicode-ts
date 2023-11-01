@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import {UserService} from "../services/UserService";
 import {Container, Row, Col, Table} from "react-bootstrap";
-import { User } from "../types.d"
+import { UserType } from "../types.d"
 
-let UserList = () => {
-
+const UserList = () => {
     const [state , setState] = useState([]);
 
     useEffect(() => {
@@ -40,7 +39,7 @@ let UserList = () => {
                             <tbody>
                                 {
                                     state.length > 0 &&
-                                    state.map((user: User )=> {
+                                    state.map((user: UserType )=> {
                                         return (
                                             <tr key={user.id}>
                                                 <td>{user.id}</td>
