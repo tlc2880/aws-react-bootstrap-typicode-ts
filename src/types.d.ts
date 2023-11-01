@@ -1,9 +1,9 @@
-// type Post = {
-//   "userId": number,
-//   "id": number,
-//   "title": string,
-//   "body": string,
-// }
+type PostType = {
+  "userId": number,
+  "id": number,
+  "title": string,
+  "body": string,
+}
 
 // type Todo = {
 //   "userId": number,
@@ -12,7 +12,7 @@
 //   "completed": boolean,
 // }
 
-export type User = {
+export type UserType = {
   "id": number,
   "name": string,
   "username": string,
