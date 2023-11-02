@@ -1,31 +1,30 @@
-import { useEffect, useState } from 'react';
-import {UserService} from "../services/UserService";
-import {Container, Row, Col, Table} from "react-bootstrap";
-import { UserType } from "../types.d"
+import { useState } from "react";
+import useFetch from "../services/useFetch";
+import { Container, Row, Col, Table } from "react-bootstrap";
+import PostList from "./PostList";
+import TodoList from "./TodoList";
+import { UserType } from "../types";
 
-const UserList = () => {
-    const [state , setState] = useState([]);
+let UserList = () => {
+    const { data } = useFetch("https://jsonplaceholder.typicode.com/users");
+    const [id, setId] = useState(1);
 
-    useEffect(() => {
-        UserService.getAllUsers().then((response) => {
-            setState(response.data)
-        }).catch((error) => {
-            console.log(error);
-        });
-    }, [])
+    const selectUser = (id: number) => {
+        setId(id);
+      };
 
     return (
         <>
             <Container className="mt-3">
                 <Row>
                     <Col>
-                        <h3 className="text-primary">User List</h3>
+                        <h3 className="text-primary">Users List</h3>
                         <p className="fst-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur deserunt ducimus inventore libero nam officia sit ullam. Ex ipsa nemo nesciunt odio odit quas rerum saepe veritatis vero voluptate!</p>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Table striped bordered hover variant="dark" className="shadow-lg text-center">
+                        <Table striped bordered hover className="shadow-lg text-center">
                             <thead>
                             <tr>
                                 <th>SNO</th>
@@ -37,27 +36,27 @@ const UserList = () => {
                             </tr>
                             </thead>
                             <tbody>
-                                {
-                                    state.length > 0 &&
-                                    state.map((user: UserType )=> {
-                                        return (
-                                            <tr key={user.id}>
-                                                <td>{user.id}</td>
-                                                <td>{user.name}</td>
-                                                <td>{user.email}</td>
-                                                <td>{user.website}</td>
-                                                <td>{user.company.name}</td>
-                                                <td>{user.address.city}</td>
-                                            </tr>
-                                        )
-                                    })
+                                {data?.map((user: UserType )=> {
+                                    return (
+                                        <tr key={user.id} onClick={() => selectUser(user.id)}>
+                                            <td>{user.id}</td>
+                                            <td>{user.name}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.website}</td>
+                                            <td>{user.company.name}</td>
+                                            <td>{user.address.city}</td>
+                                        </tr>
+                                    )})
                                 }
                             </tbody>
                         </Table>
                     </Col>
                 </Row>
             </Container>
+           <PostList userId={id} />
+           <TodoList userId={id} />
         </>
     )
 };
+
 export default UserList;

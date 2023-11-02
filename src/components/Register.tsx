@@ -26,7 +26,7 @@ const Register = () => {
             <Container className="mt-3">
                 <Row>
                     <Col md={3}>
-                        <Card  bg={'Dark'} className="shadow-lg">
+                        <Card className="shadow-lg">
                             <Card.Header className="p-3" style={{backgroundColor: '#ffc107'}}>
                                 <h4>Register</h4>
                             </Card.Header>

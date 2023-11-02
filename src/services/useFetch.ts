@@ -6,7 +6,7 @@ const useFetch: any = (url: string) => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Using Axios
+//  Using Axios
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -20,8 +20,8 @@ const useFetch: any = (url: string) => {
         setIsLoading(false);
       });
   }, [url]);
+  
   ///////////////////////////
-
   // Using Fetch Async Await
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -30,7 +30,7 @@ const useFetch: any = (url: string) => {
   //       const persons = await response.json();
   //       console.log(persons);
   //       setData(persons);
-  //       setError(null);
+  //       setError('');
   //     } catch (error) {
   //       console.log("error", error);
   //       setError("Sorry, something went wrong");
@@ -39,7 +39,6 @@ const useFetch: any = (url: string) => {
   //       setIsLoading(false);
   //     }
   //   };
-
   //   fetchData();
   // }, [url]);
 
