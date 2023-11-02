@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+td#status-complete {
+  background-color: red;
+}
+
+td.status-incomplete {
+  background-color: green;
+}
