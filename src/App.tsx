@@ -1,8 +1,9 @@
-import {Container, Navbar} from "react-bootstrap";
+import './App.css';
+import { Container, Navbar } from "react-bootstrap";
 import Counter from "./components/Counter";
 import Register from "./components/Register";
 import UserList from "./components/UserList";
-import './App.css';
+import Paginate from './components/Paginate';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Counter/>
       <Register />
       <UserList />
+      <Paginate />
     </>
   );
 }
