@@ -6,7 +6,7 @@ type Props = {
   userId: number;
 };
 
-const TodoList = ({ userId }: Props) => {
+  const TodoList = ({ userId }: Props) => {
   const { data } = useFetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
 
   return (
@@ -36,9 +36,9 @@ const TodoList = ({ userId }: Props) => {
                       <td>{post.id}</td>
                       <td>{post.title}</td>
                       {post.completed ? (
-                          <td   className="bg-success">Complete</td>
+                        <td   className="bg-success">Complete</td>
                         ) : (
-                          <td className="bg-danger">Incomplete</td>
+                        <td className="bg-danger">Incomplete</td>
                         )
                       }
                     </tr>
