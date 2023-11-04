@@ -3,6 +3,7 @@ import useFetch from "../services/useFetch";
 import { Container, Row, Col, Table } from "react-bootstrap";
 import PostList from "./PostList";
 import TodoList from "./TodoList";
+import AlbumList from "./AlbumList";
 import { UserType } from "../types";
 
 let UserList = () => {
@@ -55,6 +56,7 @@ let UserList = () => {
             </Container>
            <PostList userId={id} />
            <TodoList userId={id} />
+           <AlbumList userId={id} />
         </>
     )
 };

@@ -12,6 +12,12 @@ export type TodoType = {
   "completed": boolean,
 }
 
+export type AlbumType = {
+  "userId": number,
+  "id": number,
+  "title": string
+}
+
 export type UserType = {
   "id": number,
   "name": string,
