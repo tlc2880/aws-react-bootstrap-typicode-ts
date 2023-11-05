@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import Register from "./components/Register";
 import UserList from "./components/UserList";
 import Paginate from './components/Paginate';
+import PaginateComment from './components/PaginateComment';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Register />
       <UserList />
       <Paginate />
+      <PaginateComment />
     </>
   );
 }
