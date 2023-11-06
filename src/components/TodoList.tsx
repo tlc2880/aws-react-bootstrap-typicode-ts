@@ -7,7 +7,7 @@ type Props = {
 };
 
   const TodoList = ({ userId }: Props) => {
-  const { data } = useFetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
+  const { data } = useFetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`, userId);
 
   return (
     <>

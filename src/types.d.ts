@@ -26,6 +26,14 @@ export type CommentType = {
   "body": string
 }
 
+export type PhotoType = {
+  "albumId": number,
+  "id": number,
+  "title": string,
+  "url": string,
+  "thumbnailUrl": string
+}
+
 export type UserType = {
   "id": number,
   "name": string,

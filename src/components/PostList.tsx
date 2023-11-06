@@ -7,7 +7,7 @@ type Props = {
 };
 
 const PostList = ({ userId }: Props) => {
-  const { data } = useFetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+  const { data } = useFetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`, userId);
 
   return (
     <>
