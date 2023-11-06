@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFetch: any = (url: string) => {
+const useFetch: any = (url: string, dependency?: string) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ const useFetch: any = (url: string) => {
         setError("Sorry, something went wrong");
         setIsLoading(false);
       });
-  }, [url]);
+  }, [url, dependency]);
   
   ///////////////////////////
   // Using Fetch Async Await

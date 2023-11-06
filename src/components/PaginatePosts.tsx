@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Pagination from "react-bootstrap/Pagination";
-import { PostType } from "../types.d";
+import { PostType } from "../types";
 
-export default function Paginate() {
+export default function PaginatePosts() {
   const [state, setState] = useState({
     data: [],
     limit: 10,
@@ -13,9 +13,7 @@ export default function Paginate() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://jsonplaceholder.typicode.com/posts?_page=1&_limit=${state.limit}`
-      )
+      .get(`https://jsonplaceholder.typicode.com/posts?_page=1&_limit=${state.limit}`)
       .then((res) => {
         setState((prev) => ({
           ...prev,
@@ -24,6 +22,7 @@ export default function Paginate() {
       })
       .catch((error) => console.log(error));
   }, [state.limit]);
+
   const handlePageChange = (pageNumber: number) => {
     setState((prev) => ({ ...prev, activePage: pageNumber }));
 
@@ -40,7 +39,7 @@ export default function Paginate() {
 
   return (
     <div className="container">
-      <h2 className="mt-5 px-4">Users Posts Pagination</h2>
+      <h2 className="mt-5 px-4">Posts Pagination</h2>
       <ul className="list-group p-4">
         {state.data.map((item: PostType) => {
           return (
