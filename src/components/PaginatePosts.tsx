@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Pagination from "react-bootstrap/Pagination";
 import { PostType } from "../types";
@@ -40,16 +41,28 @@ export default function PaginatePosts() {
   return (
     <div className="container">
       <h2 className="mt-5 px-4">Posts Pagination</h2>
-      <ul className="list-group p-4">
-        {state.data.map((item: PostType) => {
-          return (
-            <li key={item.id} className="list-group-item">
-              <span className="font-weight-bold pr-2">{item.id}.</span>{" "}
-              {item.title}
-            </li>
-          );
-        })}
-      </ul>
+      <Table striped bordered hover className="shadow-lg text-center">
+        <thead>
+          <tr>
+            <th>UserId</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          {state.data.map((item: PostType) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.userId}</td>
+                <td>{item.id}</td>
+                <td>{item.title}</td>
+                <td>{item.body}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
 
       <Pagination className="px-4">
         {state.data.map((_, index) => {
